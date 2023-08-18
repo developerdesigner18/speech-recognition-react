@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import WelcomeScreen from "./pages/WelcomeScreen/WelcomeScreen";
-import TranscribingScreen from "./pages/TranscribingScreen/TranscribingScreen";
+import WelcomeScreen from "./pages/WelcomeScreen";
+import TranscribingScreen from "./pages/TranscribingScreen";
 
 function App() {
   return (
