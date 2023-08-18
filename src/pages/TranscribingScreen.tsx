@@ -7,10 +7,10 @@ import { styles } from "../Style";
 //--Add webkitSpeechRecognition and SpeechRecognition type
 declare global {
   interface Window {
-    webkitSpeechRecognition: any;
-    SpeechRecognition: any;
-    // webkitSpeechRecognition: typeof SpeechRecognition;
-    // SpeechRecognition: typeof SpeechRecognition;
+    // webkitSpeechRecognition: any;
+    // SpeechRecognition: any;
+    webkitSpeechRecognition: typeof SpeechRecognition;
+    SpeechRecognition: typeof SpeechRecognition;
   }
 }
 
@@ -26,13 +26,13 @@ const TranscribingScreen: React.FC = () => {
       newRecognition.lang = "en-US";
       newRecognition.continuous = true;
 
-      newRecognition.onresult = (event: any) => {
+      newRecognition.onresult = (event: SpeechRecognitionEvent) => {
         const transcript =
           event.results[event.results.length - 1][0].transcript;
         setTranscription((prev) => prev + transcript);
       };
 
-      newRecognition.onerror = (event: any) => {
+      newRecognition.onerror = (event: SpeechRecognitionErrorEvent) => {
         console.error("Speech recognition error:", event.error);
       };
 
